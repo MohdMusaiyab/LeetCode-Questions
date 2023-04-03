@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+    int i=digits.size()-1;
+    int carry=1;
+    vector<int> ans;
+    while(i>=0)
+    {
+        ans.push_back((digits[i]+carry)%10);    
+        carry=(carry+digits[i])/10;
+        i--;
+    }
+    //Checking if any carry is left to add or not
+    if(carry>0)
+    {
+        ans.push_back(carry);
+    }
+    reverse(ans.begin(),ans.end());
+    return ans;
+    
+
+    }
+};
