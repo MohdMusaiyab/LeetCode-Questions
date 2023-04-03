@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int numRescueBoats(vector<int>& people, int limit) {
+    //First sort the given array so that we can use the Binarry Approach
+        sort(people.begin(),people.end());
+        int r=people.size()-1;
+        int l=0;
+        int count=0;
+        while(l<=r)
+        {
+            if(people[l]+people[r]<=limit)
+            {
+                count++;
+                l++;
+                r--;
+            }
+            //here we only decrement right side as there are chances that the smalles which is left on Left side may pair with any one on right side
+            else{
+                count++;
+                r--;
+            }
+        }
+        return count;
+    }
+};
