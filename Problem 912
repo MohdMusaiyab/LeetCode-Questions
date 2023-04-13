@@ -1,0 +1,8 @@
+//It is not the ideal solution for this problem but the code will work 
+class Solution {
+public:
+    vector<int> sortArray(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        return nums;
+    }
+};
