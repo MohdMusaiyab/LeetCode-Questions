@@ -1,0 +1,25 @@
+//not my approach but will do it on my own
+
+class Solution {
+public:
+    int numWays(vector<string>& words, string target) {
+        int n = words[0].size();
+        int m = target.size();
+        vector<vector<int>> freq(n, vector<int>(26, 0));
+        for (int i = 0; i < words.size(); i++) {
+            for (int j = 0; j < n; j++) {
+                freq[j][words[i][j] - 'a']++;
+            }
+        }
+        vector<vector<long long>> dp(m+1, vector<long long>(n+1, 0));
+        for (int j = 0; j <= n; j++) {
+            dp[0][j] = 1;
+        }
+        for (int i = 1; i <= m; i++) {
+            for (int j = i; j <= n; j++) {
+                dp[i][j] = (dp[i][j-1] + dp[i-1][j-1] * freq[j-1][target[i-1] - 'a']) % 1000000007;
+            }
+        }
+        return dp[m][n];
+    }
+};
