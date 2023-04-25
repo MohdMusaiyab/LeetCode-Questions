@@ -1,0 +1,12 @@
+//I have done it using Bitwise EXOR as by doing the EXOR of all the numbers in the array we will get the number whose frequency is one only.
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            ans=nums[i] ^ ans;
+        }
+        return ans;
+              }
+};
