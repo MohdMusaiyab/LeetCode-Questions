@@ -1,0 +1,9 @@
+//You can find the pattern easily by taking  cases upto 20
+//You will observe that a cycle is being created on numbers having 9
+class Solution {
+public:
+    int addDigits(int num) {
+        return (num-1)%9+1;
+        
+    }
+};
