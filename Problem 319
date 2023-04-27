@@ -1,0 +1,10 @@
+//this question is more of Maths rather than coding
+//You need to think of the problem for sometime inorder to find this way
+//The oter way is to calculate the number of number that have odd number of factors but it would be complex
+class Solution {
+public:
+    int bulbSwitch(int n) {
+        int ans=sqrt(n);
+        return ans;
+    }
+};
