@@ -1,0 +1,26 @@
+//there are other better ways of solving the same problem also
+//I have used the bruteforce method which is using the Selection Sort and then swapping
+class Solution {
+public:
+    
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        int max=INT_MIN;
+        for(int i=0;i<names.size();i++)
+        {
+            for(int j=i+1;j<names.size();j++)
+            {
+                if(heights[i]<heights[j])
+                {
+                    int temp=heights[i];
+                    heights[i]=heights[j];
+                    heights[j]=temp;
+                    string a=names[i];
+                    names[i]=names[j];
+                    names[j]=a;
+                    
+                }
+            }
+        }
+        return names;
+    }
+};
