@@ -1,0 +1,21 @@
+//I have done this question using basic knowledge of sets in STL
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        set<int> s;
+        for(int i=0;i<nums1.size();i++)
+        {
+            s.insert(nums1[i]);
+        }
+        vector<int> ans;
+        for(int j=0;j<nums2.size();j++)
+        {
+            if(s.count(nums2[j])>0)
+            {
+                ans.push_back(nums2[j]);
+                s.erase(nums2[j]);
+            }
+        }
+        return ans;
+    }
+};
