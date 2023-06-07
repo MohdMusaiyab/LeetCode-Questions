@@ -1,0 +1,25 @@
+//The given solution is a Bruteforce method 
+//You can find any other way which is optimized than this to solve the given question
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        vector<int> vec;
+        ListNode *t=head;
+        while(t!=NULL)
+        {   
+            vec.push_back(t->val);
+            t=t->next;
+        }
+        sort(vec.begin(),vec.end());
+        ListNode *t2=head;
+        int i=0;
+        while(t2!=NULL)
+        {
+            t2->val=vec[i];
+            i++;
+            t2=t2->next;
+        }
+        return head;
+
+    }
+};
