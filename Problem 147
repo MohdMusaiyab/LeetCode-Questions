@@ -1,0 +1,22 @@
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        ListNode *t=head;
+        vector<int> vec;
+        while(t!=NULL)
+        {   
+            vec.push_back(t->val);
+            t=t->next;
+        }
+        sort(vec.begin(),vec.end());
+        t=head;
+        int i=0;
+        while(t!=NULL)
+        {
+            t->val=vec[i];
+            i++;
+            t=t->next;
+        }
+        return head;
+    }
+};
