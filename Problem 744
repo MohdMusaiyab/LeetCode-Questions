@@ -1,25 +1,23 @@
 class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
-        char ans=letters[0];
-        sort(letters.begin(),letters.end());
-        int n=letters.size();
-        if(letters[n-1]==target)
-        {
-            return ans;
-        }
-        else{
-            
-            for(int i=0;i<n;i++)
-            {
-                if(letters[i]>target)
-                {   ans=letters[i];
-                    break;
-                }
-            }
-            return ans;
-        }
-        
+        int ans=target;
+        char finalans;
+        while(true)
 
+        {       ans+=1;
+               char z=ans;
+            auto it=find(letters.begin(),letters.end(),z);
+            if(it!=letters.end())
+            {
+                finalans=z;
+                break;
+            }
+            if(z>122)
+            {
+                z=97;
+            }
+        }
+        return finalans;
     }
 };
