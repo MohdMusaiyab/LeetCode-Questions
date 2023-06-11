@@ -1,0 +1,40 @@
+//Well in this solutionI have created a new linked list as it was an easy way of doing so.
+//How ever you can also do this question without creating an extra Linked List//
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        if(head==NULL)
+        {
+            return NULL;
+        }
+        else{
+        ListNode *temp=head;
+        ListNode *h=NULL,*t=NULL;
+        while(temp!=NULL)
+        {
+            if(temp->val==val)
+            {
+                temp=temp->next;
+            }
+            else{
+                if(h==NULL)
+                {
+                    h=temp;
+                    t=temp;
+                }
+                else{
+                    t->next=temp;
+                    t=t->next;
+                    
+                }
+                temp=temp->next;
+            }
+        }
+        if(t!=NULL)
+        {
+            t->next=NULL;
+        }
+             return h;
+        }
+    }
+};
