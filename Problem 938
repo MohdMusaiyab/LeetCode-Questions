@@ -1,0 +1,24 @@
+//I have made another fucntion for Traversal but it can be done in the same function that is given to us also.
+class Solution {
+public:
+    int sum=0;
+    void traversal(TreeNode *root,int low,int high)
+    {
+        if(root==NULL)
+        {
+            return ;
+        }
+        traversal(root->left,low,high);
+        if(root->val>=low && root->val <=high)
+        {
+            sum+=root->val;
+        }
+
+        traversal(root->right,low,high);
+
+    }
+    int rangeSumBST(TreeNode* root, int low, int high) {
+        traversal(root,low,high);
+        return sum;
+    }
+};
