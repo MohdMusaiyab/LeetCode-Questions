@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool isMonotonic(vector<int>& nums) {
+        bool isDec=true;
+        bool isInc=true;
+        for(int i=1;i<nums.size();i++)
+        {
+            if(nums[i]<nums[i-1])
+            {
+                isInc=false;
+            }   
+            else if(nums[i]>nums[i-1])
+            {
+                    isDec=false;
+            }
+            if(!isDec && !isInc)
+            {
+                return false;
+              break;
+              
+             }
+        }
+       return true;
+    }
+};
