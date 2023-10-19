@@ -1,0 +1,46 @@
+//The question is solved using  Binary Search Approach which is one of the best ways of solving the Given Problem//
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int f=-1,l=-1;
+        int low=0,high=nums.size()-1;
+        while(low<=high)
+        {
+            int mid=low+(high-low)/2;
+            if(nums[mid]==target)
+            {
+                f=mid;
+                high=mid-1;
+            }
+            else if(nums[mid]<target)
+            {
+                    low=mid+1;
+            }
+            else{
+                    high=mid-1;
+            }
+        }
+        //Now going for the Last Element
+        low=0,high=nums.size()-1;
+        while(low<=high)
+        {
+            int mid=low+(high-low)/2;
+            if(nums[mid]==target)
+            {
+                l=mid;
+                low=mid+1;
+            }
+            else if(nums[mid]<target)
+            {
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        vector<int>ans;
+        ans.push_back(f);
+        ans.push_back(l);
+        return ans;
+    }
+};
